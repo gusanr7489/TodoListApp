@@ -23,7 +23,7 @@ public class TodoUtil {
 		
 		title = sc.next();
 		if (list.isDuplicate(title)) {
-			System.out.printf("항목 제목이 중복됩니다!");
+			System.out.println("항목 제목이 중복됩니다!");
 			return;
 		}
 		sc.nextLine();
@@ -37,21 +37,22 @@ public class TodoUtil {
 	public static void deleteItem(TodoList l) {
 		
 		Scanner sc = new Scanner(System.in);
+		boolean flag = false;
 		
 		System.out.print("\n"
 				+ "<항목 삭제>\n"
-				+ "삭제할 제목을 입력하세요 -> \n"
-				+ "\n");
+				+ "삭제할 제목을 입력하세요 -> ");
 		
 		String title = sc.next();
 		for (TodoItem item : l.getList()) {
 			if (title.equals(item.getTitle())) {
 				l.deleteItem(item);
 				System.out.println("삭제되었습니다.");
+				flag = true;
 				break;
 			}
 		}
-		System.out.println("항목을 찾을 수가 없습니다.");
+		if(!flag) System.out.println("항목을 찾을 수가 없습니다.");
 	}
 
 
@@ -123,7 +124,7 @@ public class TodoUtil {
 			br.close();
 			System.out.println("파일을 성공적으로 열었습니다.");
 		} catch (FileNotFoundException e) {
-			e.printStackTrace();
+			System.out.println("저장된 파일이 없습니다.");
 		} catch (IOException e) {
 			e.printStackTrace();
 		} 
