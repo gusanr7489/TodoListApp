@@ -85,6 +85,8 @@ public class TodoUtil {
 		
 		System.out.print("새 제목? -> ");
 		String new_title = sc.next().trim();
+		
+		
 		if (l.isDuplicate(new_title)) {
 			System.out.println("항목 제목이 중복됩니다!");
 			return;
@@ -101,6 +103,44 @@ public class TodoUtil {
 		l.editItem(target, t);
 		System.out.println("항목이 수정되었습니다.");
 		
+	}
+	
+	public static void find(String target, TodoList l) {
+		int count=0;
+		for(TodoItem myitem : l.getList()) {
+			if(myitem.getTitle().contains(target) || myitem.getDesc().contains(target)) {
+				System.out.println( (l.indexOf(myitem) + 1) + ". " + myitem.toString());
+				count++;
+			}
+		}
+		System.out.println("총 " + count + "개의 항목을 찾았습니다.");
+	}
+	
+	public static void findCategory(String target, TodoList l) {
+		int count=0;
+		for(TodoItem myitem : l.getList()) {
+			if(myitem.getCategory().contains(target)) {
+				System.out.println( (l.indexOf(myitem)+1) + ". " + myitem.toString());
+				count++;
+			}
+		}
+		System.out.println("총 " + count + "개의 항목을 찾았습니다.");
+	}
+	
+	public static void listCategory(TodoList l) {
+		String st="";
+		int count=0;
+		for(TodoItem myitem: l.getList()) {
+			if(!st.contains(myitem.getCategory())) {
+				if(count==0)
+					st = myitem.getCategory();
+				else 
+					st = st + " / " +myitem.getCategory();
+				count++;
+			}
+		}
+		System.out.println(st + "\n" 
+				+ "총 " + count + "개의 카테고리가 등록되어 있습니다.");
 	}
 
 	public static void listAll(TodoList l) {

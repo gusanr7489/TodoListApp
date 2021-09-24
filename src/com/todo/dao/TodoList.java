@@ -64,41 +64,4 @@ public class TodoList {
 		return false;
 	}
 	
-	public void find(String target) {
-		int count=0;
-		for(TodoItem myitem : list) {
-			if(myitem.getTitle().contains(target) || myitem.getDesc().contains(target)) {
-				System.out.println( (list.indexOf(myitem) + 1) + ". " + myitem.toString());
-				count++;
-			}
-		}
-		System.out.println("총 " + count + "개의 항목을 찾았습니다.");
-	}
-	
-	public void findCategory(String target) {
-		int count=0;
-		for(TodoItem myitem : list) {
-			if(myitem.getCategory().contains(target)) {
-				System.out.println( (list.indexOf(myitem)+1) + ". " + myitem.toString());
-				count++;
-			}
-		}
-		System.out.println("총 " + count + "개의 항목을 찾았습니다.");
-	}
-	
-	public void listCategory() {
-		String st="";
-		int count=0;
-		for(TodoItem myitem: list) {
-			if(!st.contains(myitem.getCategory())) {
-				if(count==0)
-					st = myitem.getCategory();
-				else 
-					st = st + " / " +myitem.getCategory();
-				count++;
-			}
-		}
-		System.out.println(st + "\n" 
-				+ "총 " + count + "개의 카테고리가 등록되어 있습니다.");
-	}
 }

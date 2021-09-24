@@ -23,12 +23,12 @@ public class TodoMain {
 			String choice = sc.nextLine();
 			
 			if(choice.contains("find_cate")) {
-				l.findCategory(choice.replace("find_cate ", ""));
+				TodoUtil.findCategory(choice.replace("find_cate ", ""), l);
 				continue;
 			}
 			
 			if(choice.contains("find ")) {
-				l.find(choice.replace("find ", ""));
+				TodoUtil.find(choice.replace("find ", ""), l);
 				continue;
 			}
 			switch (choice) {
@@ -76,7 +76,7 @@ public class TodoMain {
 				break;	
 				
 			case "ls_cate":
-				l.listCategory();
+				TodoUtil.listCategory(l);
 				break;
 				
 			case "exit":
