@@ -21,6 +21,16 @@ public class TodoMain {
 			Menu.prompt();
 			isList = false;
 			String choice = sc.nextLine();
+			
+			if(choice.contains("find_cate")) {
+				l.findCategory(choice.replace("find_cate ", ""));
+				continue;
+			}
+			
+			if(choice.contains("find")) {
+				l.find(choice.replace("find ", ""));
+				continue;
+			}
 			switch (choice) {
 
 			case "add":
@@ -57,7 +67,18 @@ public class TodoMain {
 				isList = true;
 				System.out.println("날짜순으로 정렬했습니다.");
 				break;
-
+			
+			case "ls_date_desc":
+				l.sortByDate();
+				l.reverseList();
+				isList = true;
+				System.out.println("날짜순으로 역정렬했습니다.");
+				break;	
+				
+			case "ls_cate":
+				l.listCategory();
+				break;
+				
 			case "exit":
 				quit = true;
 				break;
