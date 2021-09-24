@@ -68,7 +68,7 @@ public class TodoList {
 		int count=0;
 		for(TodoItem myitem : list) {
 			if(myitem.getTitle().contains(target) || myitem.getDesc().contains(target)) {
-				System.out.println(myitem.toString());
+				System.out.println( (list.indexOf(myitem) + 1) + ". " + myitem.toString());
 				count++;
 			}
 		}
@@ -79,7 +79,7 @@ public class TodoList {
 		int count=0;
 		for(TodoItem myitem : list) {
 			if(myitem.getCategory().contains(target)) {
-				System.out.println(myitem.toString());
+				System.out.println( (list.indexOf(myitem)+1) + ". " + myitem.toString());
 				count++;
 			}
 		}

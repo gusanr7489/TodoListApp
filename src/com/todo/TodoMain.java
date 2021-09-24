@@ -27,7 +27,7 @@ public class TodoMain {
 				continue;
 			}
 			
-			if(choice.contains("find")) {
+			if(choice.contains("find ")) {
 				l.find(choice.replace("find ", ""));
 				continue;
 			}
