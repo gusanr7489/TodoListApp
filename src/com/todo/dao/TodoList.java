@@ -41,6 +41,10 @@ public class TodoList {
 		}
 	}
 	
+	public int getCount() {
+		return list.size();
+	}
+	
 	public void reverseList() {
 		Collections.reverse(list);
 	}

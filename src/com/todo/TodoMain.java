@@ -20,17 +20,13 @@ public class TodoMain {
 		do {
 			Menu.prompt();
 			isList = false;
-			String choice = sc.nextLine();
+			String choice = sc.next();
 			
 			if(choice.contains("find_cate")) {
 				TodoUtil.findCategory(choice.replace("find_cate ", ""), l);
 				continue;
 			}
 			
-			if(choice.contains("find ")) {
-				TodoUtil.find(choice.replace("find ", ""), l);
-				continue;
-			}
 			switch (choice) {
 
 			case "add":
@@ -48,7 +44,12 @@ public class TodoMain {
 			case "ls":
 				TodoUtil.listAll(l);
 				break;
-
+				
+			case "find":
+				String target = sc.nextLine().trim();
+				TodoUtil.find(target, l);
+				break;
+				
 			case "ls_name_asc":
 				l.sortByName();
 				isList = true;
